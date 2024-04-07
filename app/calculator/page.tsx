@@ -46,9 +46,9 @@ const RadarCalculator: React.FC = () => {
 
     let sigma = parseFloat(radarCrossSection);
 
-    if (radarCrossSectionUnit === "sqft") σ *= 0.092903;
-    if (radarCrossSectionUnit === "in²") σ *= 0.00064516;
-    if (radarCrossSectionUnit === "cm²") σ /= 10000;
+    if (radarCrossSectionUnit === "sqft") sigma *= 0.092903;
+    if (radarCrossSectionUnit === "in²") sigma *= 0.00064516;
+    if (radarCrossSectionUnit === "cm²") sigma /= 10000;
 
     const Gr = parseFloat(radarAntennaGain);
     let f0 = parseFloat(radarSignalFrequency);
