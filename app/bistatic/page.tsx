@@ -13,6 +13,7 @@ const RadarCalculator: React.FC = () => {
   const [apertureArea, setApertureArea] = useState<string>("");
 
   const [powerUnit, setPowerUnit] = useState<string>("kW"); // Default is kilo watts
+  const [pminUnit, setPminUnit] = useState<string>("μW"); // Default is micro watts
   const [areaUnit, setAreaUnit] = useState<string>("sq meters");
   const [frequencyUnit, setFrequencyUnit] = useState<string>("GHz");
 
@@ -29,7 +30,7 @@ const RadarCalculator: React.FC = () => {
   const calculate = () => {
     // Convert input values to numbers
     const Pt = parseFloat(pt) * getPowerMultiplier(powerUnit);
-    const Pmin = parseFloat(pmin) * getPowerMultiplier("μW");
+    const Pmin = parseFloat(pmin) * getPowerMultiplier(pminUnit);
     const G = parseFloat(g);
     const Sigma = parseFloat(sigma);
     const F = parseFloat(f) * getFrequencyMultiplier(frequencyUnit);
@@ -282,11 +283,13 @@ const RadarCalculator: React.FC = () => {
                   onChange={handleInputChange}
                 />
                 <select
-                  value="μW"
+                  value={pminUnit}
                   className="px-3 py-2 border rounded-md"
-                  disabled
+                  onChange={(e) => setPminUnit(e.target.value)}
                 >
                   <option value="μW">μW</option>
+                  <option value="mW">mW</option>
+                  <option value="W">W</option>
                 </select>
               </div>
             </div>
