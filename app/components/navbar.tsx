@@ -112,23 +112,23 @@ const Navbar: React.FC<NavbarProps> = ({ currentLessonIndex }) => {
           {lectures[currentLessonIndex].title}
         </span>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <button
-          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded mr-2"
+          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded-md mr-2"
           onClick={goToPrevious}
           disabled={currentLessonIndex === 0}
         >
           Previous Lecture
         </button>
         <button
-          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded mr-2"
+          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded-md mr-2"
           onClick={goToNext}
           disabled={currentLessonIndex === lectures.length - 1}
         >
           Next Lecture
         </button>
         <button
-          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded"
+          className="bg-indigo-50 hover:bg-neutral-200 text-black font-bold py-2 px-4 rounded-md"
           onClick={goToLearnAgain}
         >
           Learn Again
