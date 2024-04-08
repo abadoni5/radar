@@ -4,9 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-gray-100 ">
-        <h1 className="text-4xl pt-8 font-bold mb-8 text-center">
-          Welcome to Radar
-        </h1>
+        <h1 className="text-4xl pt-8 font-bold mb-8 text-center">Radars</h1>
         <div className="h-screen flex justify-center items-center flex-col">
           <div className="pb-96 flex justify-between w-2/3">
             <Link
