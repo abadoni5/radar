@@ -1,24 +1,30 @@
 import React from "react";
+import RadarComponent from "../components/buyRadarTab";
+import QuickLinksNavbar from "../components/quicklinks";
 
-function Page() {
+const Page = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex flex-wrap justify-center gap-8 p-8 pb-96 ">
-        <div className="bg-blue-200 hover:bg-blue-300 rounded-lg p-6 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
-          <h2 className="text-xl font-semibold mb-2">
-            Physical Education Classroom Equipment
-          </h2>
-          <p>Speed Radar Gun (Q3)</p>
-        </div>
-        <div className="bg-green-200 hover:bg-green-300 rounded-lg p-6 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
-          <h2 className="text-xl font-semibold mb-2">
-            Indicating And Recording Instruments
-          </h2>
-          <p>Level Transmitter Radar Type (Q3)</p>
-        </div>
+    <>
+      <QuickLinksNavbar />
+      <div className="container mx-auto py-8">
+        <h2 className="text-3xl font-bold mb-4">Radar Parameters</h2>
+        <p className="mb-6">
+          The parameter values for radars are generally chosen to optimize their
+          performance for the specific application and environment they are
+          designed for. Factors like frequency, bandwidth, power, antenna
+          characteristics, and scanning mechanisms are carefully selected to
+          balance the trade-offs between range, resolution, sensitivity, and
+          other operational requirements.
+        </p>
+        <p className="mb-6">
+          The radar parameter values presented here are for general reference
+          and should not be considered definitive or exhaustive for any specific
+          radar system. Use these as a starting point.
+        </p>
       </div>
-    </div>
+      <RadarComponent />
+    </>
   );
-}
+};
 
 export default Page;

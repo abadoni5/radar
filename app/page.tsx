@@ -8,7 +8,7 @@ export default function Home() {
         <div className="h-screen flex justify-center items-center flex-col">
           <div className="pb-96 flex justify-between w-2/3">
             <Link
-              href="/learnRadar"
+              href="/overview"
               className="w-1/3 p-6 bg-blue-200 rounded-lg hover:bg-blue-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mr-4 flex flex-col justify-between"
             >
               <h2 className="text-xl font-semibold mb-2 text-center">

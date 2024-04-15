@@ -1,7 +1,11 @@
 "use client";
 import React, { useState } from "react";
 
-const RadarCalculator: React.FC = () => {
+interface RadarCalculatorProps {
+  onSubmit: (results: any) => void;
+}
+
+const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
   const [pt, setPt] = useState<string>(""); // Default is kilo watts
   const [pmin, setPmin] = useState<string>(""); // Default is micro watts
   const [g, setG] = useState<string>("");
@@ -10,6 +14,7 @@ const RadarCalculator: React.FC = () => {
   const [b, setB] = useState<string>("");
   const [x, setX] = useState<string>("");
   const [theta, setTheta] = useState<string>("");
+  const [apertureArea, setApertureArea] = useState<string>("");
 
   const [powerUnit, setPowerUnit] = useState<string>("kW"); // Default is kilo watts
   const [pminUnit, setPminUnit] = useState<string>("μW"); // Default is micro watts
@@ -36,6 +41,7 @@ const RadarCalculator: React.FC = () => {
     const B = parseFloat(b);
     const X = parseFloat(x);
     const Theta = parseFloat(theta);
+    const Ae = parseFloat(apertureArea) * getAreaMultiplier(areaUnit);
 
     if (
       pt.trim() === "" ||
@@ -45,7 +51,8 @@ const RadarCalculator: React.FC = () => {
       f.trim() === "" ||
       b.trim() === "" ||
       x.trim() === "" ||
-      theta.trim() === ""
+      theta.trim() === "" ||
+      apertureArea.trim() === ""
     ) {
       setShowModal(true);
       setModalMessage("Please fill in all the input fields.");
@@ -61,7 +68,8 @@ const RadarCalculator: React.FC = () => {
       isNaN(F) ||
       isNaN(B) ||
       isNaN(X) ||
-      isNaN(Theta)
+      isNaN(Theta) ||
+      isNaN(Ae)
     ) {
       alert("Invalid input. Please enter valid numbers.");
       return;
@@ -70,13 +78,9 @@ const RadarCalculator: React.FC = () => {
     // Speed of light in meters per second
     const c = 3e8;
 
-    // Calculate gamma
-    const lambda = c / F;
-
     // Calculate Range (R)
     const R = Math.pow(
-      (Pt * Math.pow(G, 2) * Math.pow(lambda, 2) * Sigma) /
-        (Math.pow(4 * Math.PI, 3) * Pmin),
+      (Pt * G * Ae * Sigma) / (Math.pow(4 * Math.PI, 2) * Pmin),
       1 / 4
     );
 
@@ -197,6 +201,9 @@ const RadarCalculator: React.FC = () => {
         case "theta":
           setTheta(value);
           break;
+        case "apertureArea":
+          setApertureArea(value);
+          break;
         default:
           break;
       }
@@ -209,13 +216,7 @@ const RadarCalculator: React.FC = () => {
 
   return (
     <>
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-black pt-8">
-          Monostatic Radar Calculator
-        </h1>
-      </div>
-
-      <div className="flex justify-center items-center h-screen pt-20">
+      <div className="flex justify-center items-center">
         <div className="max-w-4xl p-6 bg-gray-100 rounded-lg">
           {/* Modal */}
           {showModal && (
@@ -281,8 +282,8 @@ const RadarCalculator: React.FC = () => {
                 />
                 <select
                   value={pminUnit}
-                  onChange={(e) => setPminUnit(e.target.value)}
                   className="px-3 py-2 border rounded-md"
+                  onChange={(e) => setPminUnit(e.target.value)}
                 >
                   <option value="μW">μW</option>
                   <option value="mW">mW</option>
@@ -404,6 +405,35 @@ const RadarCalculator: React.FC = () => {
                 value={theta}
                 onChange={handleInputChange}
               />
+            </div>
+
+            {/* Aperture Area */}
+            <div className="mb-4">
+              <label
+                htmlFor="apertureArea"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Aperture Area
+              </label>
+              <div className="flex">
+                <input
+                  type="text"
+                  id="apertureArea"
+                  className="w-full px-3 py-2 border rounded-md mr-2"
+                  value={apertureArea}
+                  onChange={handleInputChange}
+                />
+                <select
+                  value={areaUnit}
+                  onChange={(e) => setAreaUnit(e.target.value)}
+                  className="px-3 py-2 border rounded-md"
+                >
+                  <option value="sq inches">sq inches</option>
+                  <option value="sq feet">sq feet</option>
+                  <option value="sq cm">sq cm</option>
+                  <option value="sq meters">sq meters</option>
+                </select>
+              </div>
             </div>
           </div>
 

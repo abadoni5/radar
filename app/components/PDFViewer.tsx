@@ -9,9 +9,9 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ src }) => {
     <iframe
       src={`${src}.pdf#toolbar=0`}
       title="PDF Viewer"
-      className="m-16 border-gray-200 border shadow-lg rounded-lg"
-      width="56%"
-      height="500px"
+      className="border-gray-200 border shadow-lg rounded-lg"
+      width="100%"
+      height="100%"
     />
   );
 };
