@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentLessonIndex }) => {
   };
 
   const goToLearnAgain = () => {
-    window.location.href = "/learnRadar";
+    window.location.href = "/overview";
   };
 
   return (
