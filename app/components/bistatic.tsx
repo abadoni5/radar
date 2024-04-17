@@ -125,8 +125,8 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
     setMinResolution(Mr.toFixed(2));
     setAvgPowerTransmitted(Pavg.toFixed(2));
     setEnergy(E.toFixed(2));
-    setHitsPerScan(n.toFixed(2));
-    setPulseWidth(z.toFixed(2));
+    setHitsPerScan(Math.round(n).toString());
+    setPulseWidth(z.toFixed(6));
   };
 
   // Helper function to get multiplier for power unit

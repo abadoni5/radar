@@ -21,6 +21,12 @@ const Page = () => {
           and should not be considered definitive or exhaustive for any specific
           radar system. Use these as a starting point.
         </p>
+        <a
+          href="https://in.mathworks.com/help/radar/ref/radardesigner-app.html#mw_51c21f8d-0473-4ed3-a1be-2861253eb6f3"
+          className="text-blue-500 hover:underline"
+        >
+          Source: MathWorks Radar Designer
+        </a>
       </div>
       <RadarComponent />
     </>

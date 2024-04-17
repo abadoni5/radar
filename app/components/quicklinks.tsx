@@ -23,7 +23,7 @@ const QuickLinksNavbar: React.FC = () => {
               href="/buyRadar"
               className="flex-1 text-white hover:bg-gray-600 px-3 py-2 rounded-md text-sm font-medium block text-center"
             >
-              Radar Paremeters
+              Radar Parameters
             </Link>
             <Link
               href="/calculator"
