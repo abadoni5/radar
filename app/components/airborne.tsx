@@ -17,27 +17,13 @@ const AirborneRadarComponent: React.FC = () => {
           className="max-w-full h-auto"
         />
       </div>
-      <div className="mt-8">
-        <h3 className="text-2xl font-bold mb-4">Advantages</h3>
-        <ul className="list-disc pl-6">
-          <li className="text-green-600 mb-2">
-            Provides good range and resolution characteristics for airborne
-            surveillance
-          </li>
-          <li className="text-green-600 mb-2">
-            High power to achieve long-range detection
-          </li>
-          <li className="text-green-600 mb-2">
-            Long pulse width to enhance detection range
-          </li>
-          <li className="text-green-600 mb-2">
-            High antenna elevation for better coverage
-          </li>
-          <li className="text-green-600 mb-2">
-            Electronic, allowing for rapid scanning and tracking of targets
-          </li>
-        </ul>
-      </div>
+      <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
+      <ul className="list-disc pl-6">
+        <li>Saab 2000 Erieye AEW&C</li>
+        <li>GlobalEye AEW&C | Saab</li>
+        <li>E-3 Sentry (AWACS)</li>
+        <li>Airborne Early Warning & Control Aircraft - ELW-2090</li>
+      </ul>
     </div>
   );
 };

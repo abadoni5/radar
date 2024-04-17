@@ -17,19 +17,13 @@ const TrackingRadarComponent: React.FC = () => {
           className="max-w-full h-auto"
         />
       </div>
-      <h3 className="text-2xl font-bold mb-4">Advantages</h3>
+      <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li className="text-green-600 mb-2">
-          Suitable for long range tracking applications
-        </li>
-        <li className="text-green-600 mb-2">
-          Very high power for long range and resolution
-        </li>
-        <li className="text-green-600 mb-2">
-          Elevated, to achieve better coverage and line of sight
-        </li>
-        <li className="text-green-600 mb-2">
-          Usually mechanical or electronically scanned antenna
+        <li>Compact Tracking Radar | BAE Systems</li>
+        <li>PHAROS - Multi Target Tracking Radar | Thales Group</li>
+        <li>Precision Tracking Radar | BAE Systems</li>
+        <li>
+          RSR 420 | Ground-Based Surveillance and Target Acquisition Radar
         </li>
       </ul>
     </div>

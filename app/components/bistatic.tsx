@@ -48,7 +48,6 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
       pmin.trim() === "" ||
       g.trim() === "" ||
       sigma.trim() === "" ||
-      f.trim() === "" ||
       b.trim() === "" ||
       x.trim() === "" ||
       theta.trim() === "" ||
@@ -65,7 +64,6 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
       isNaN(Pmin) ||
       isNaN(G) ||
       isNaN(Sigma) ||
-      isNaN(F) ||
       isNaN(B) ||
       isNaN(X) ||
       isNaN(Theta) ||
@@ -85,6 +83,16 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
     );
 
     // Handle case where minimum detectable power is 0
+    if (G === 0) {
+      setRange("Gain cannot be 0");
+      setMinResolution("Gain cannot be 0");
+      setAvgPowerTransmitted("Gain cannot be 0");
+      setEnergy("Gain cannot be 0");
+      setHitsPerScan("Gain cannot be 0");
+      setPulseWidth("Gain cannot be 0");
+      return;
+    }
+
     if (Pmin === 0) {
       setRange("Out of radar range");
       setMinResolution("");
@@ -296,7 +304,7 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
             {/* Gain */}
             <div className="mb-4">
               <label htmlFor="g" className="block text-gray-700 font-bold mb-2">
-                Gain (linear) (G)
+                Gain (Numeric) (G)
               </label>
               <input
                 type="text"
@@ -336,84 +344,13 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
               </div>
             </div>
 
-            {/* Operating Frequency */}
-            <div className="mb-4">
-              <label htmlFor="f" className="block text-gray-700 font-bold mb-2">
-                Operating Frequency
-              </label>
-              <div className="flex">
-                <input
-                  type="text"
-                  id="f"
-                  className="w-full px-3 py-2 border rounded-md mr-2"
-                  value={f}
-                  onChange={handleInputChange}
-                />
-                <select
-                  value={frequencyUnit}
-                  onChange={(e) => setFrequencyUnit(e.target.value)}
-                  className="px-3 py-2 border rounded-md"
-                >
-                  <option value="GHz">GHz</option>
-                  <option value="MHz">MHz</option>
-                  <option value="kHz">kHz</option>
-                  <option value="Hz">Hz</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Bandwidth of Radar */}
-            <div className="mb-4">
-              <label htmlFor="b" className="block text-gray-700 font-bold mb-2">
-                Bandwidth of Radar
-              </label>
-              <input
-                type="text"
-                id="b"
-                className="w-full px-3 py-2 border rounded-md"
-                value={b}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            {/* RPM */}
-            <div className="mb-4">
-              <label htmlFor="x" className="block text-gray-700 font-bold mb-2">
-                RPM
-              </label>
-              <input
-                type="text"
-                id="x"
-                className="w-full px-3 py-2 border rounded-md"
-                value={x}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            {/* Antenna Half Power Beamwidth */}
-            <div className="mb-4">
-              <label
-                htmlFor="theta"
-                className="block text-gray-700 font-bold mb-2"
-              >
-                Antenna Half Power Beamwidth
-              </label>
-              <input
-                type="text"
-                id="theta"
-                className="w-full px-3 py-2 border rounded-md"
-                value={theta}
-                onChange={handleInputChange}
-              />
-            </div>
-
             {/* Aperture Area */}
             <div className="mb-4">
               <label
                 htmlFor="apertureArea"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Aperture Area
+                Effective Aperture Area
               </label>
               <div className="flex">
                 <input
@@ -434,6 +371,51 @@ const RadarCalculator: React.FC<RadarCalculatorProps> = () => {
                   <option value="sq meters">sq meters</option>
                 </select>
               </div>
+            </div>
+
+            {/* Bandwidth of Radar */}
+            <div className="mb-4">
+              <label htmlFor="b" className="block text-gray-700 font-bold mb-2">
+                Bandwidth of Radar (Hz)
+              </label>
+              <input
+                type="text"
+                id="b"
+                className="w-full px-3 py-2 border rounded-md"
+                value={b}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            {/* RPM */}
+            <div className="mb-4">
+              <label htmlFor="x" className="block text-gray-700 font-bold mb-2">
+                Rotational Speed (RPM)
+              </label>
+              <input
+                type="text"
+                id="x"
+                className="w-full px-3 py-2 border rounded-md"
+                value={x}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            {/* Antenna Half Power Beamwidth */}
+            <div className="mb-4">
+              <label
+                htmlFor="theta"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Antenna Half Power Beamwidth (Degrees)
+              </label>
+              <input
+                type="text"
+                id="theta"
+                className="w-full px-3 py-2 border rounded-md"
+                value={theta}
+                onChange={handleInputChange}
+              />
             </div>
           </div>
 

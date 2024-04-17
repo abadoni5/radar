@@ -14,6 +14,7 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
   const [b, setB] = useState<string>("");
   const [x, setX] = useState<string>("");
   const [theta, setTheta] = useState<string>("");
+  const [wavelength, setWavelength] = useState<string>("");
 
   const [powerUnit, setPowerUnit] = useState<string>("kW"); // Default is kilo watts
   const [pminUnit, setPminUnit] = useState<string>("μW"); // Default is micro watts
@@ -36,9 +37,9 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
     const Pmin = parseFloat(pmin) * getPowerMultiplier(pminUnit);
     const G = parseFloat(g);
     const Sigma = parseFloat(sigma);
-    const F = parseFloat(f) * getFrequencyMultiplier(frequencyUnit);
     const B = parseFloat(b);
     const X = parseFloat(x);
+    const Lambda = parseFloat(wavelength);
     const Theta = parseFloat(theta);
 
     if (
@@ -49,7 +50,9 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
       f.trim() === "" ||
       b.trim() === "" ||
       x.trim() === "" ||
-      theta.trim() === ""
+      theta.trim() === "" ||
+      isNaN(Lambda) ||
+      Lambda <= 0
     ) {
       setShowModal(true);
       setModalMessage("Please fill in all the input fields.");
@@ -62,7 +65,6 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
       isNaN(Pmin) ||
       isNaN(G) ||
       isNaN(Sigma) ||
-      isNaN(F) ||
       isNaN(B) ||
       isNaN(X) ||
       isNaN(Theta)
@@ -74,12 +76,9 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
     // Speed of light in meters per second
     const c = 3e8;
 
-    // Calculate gamma
-    const lambda = c / F;
-
     // Calculate Range (R)
     const R = Math.pow(
-      (Pt * Math.pow(G, 2) * Math.pow(lambda, 2) * Sigma) /
+      (Pt * Math.pow(G, 2) * Math.pow(Lambda, 2) * Sigma) /
         (Math.pow(4 * Math.PI, 3) * Pmin),
       1 / 4
     );
@@ -92,6 +91,16 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
       setEnergy("");
       setHitsPerScan("");
       setPulseWidth("");
+      return;
+    }
+
+    if (G === 0) {
+      setRange("Gain cannot be 0");
+      setMinResolution("Gain cannot be 0");
+      setAvgPowerTransmitted("Gain cannot be 0");
+      setEnergy("Gain cannot be 0");
+      setHitsPerScan("Gain cannot be 0");
+      setPulseWidth("Gain cannot be 0");
       return;
     }
 
@@ -118,7 +127,7 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
     setAvgPowerTransmitted(Pavg.toFixed(2));
     setEnergy(E.toFixed(2));
     setHitsPerScan(n.toFixed(2));
-    setPulseWidth(z.toFixed(2));
+    setPulseWidth(z.toFixed(6));
   };
 
   // Helper function to get multiplier for power unit
@@ -189,6 +198,8 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
         case "sigma":
           setSigma(value);
           break;
+        case "wavelength":
+          setWavelength(value);
         case "f":
           setF(value);
           break;
@@ -293,7 +304,7 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
             {/* Gain */}
             <div className="mb-4">
               <label htmlFor="g" className="block text-gray-700 font-bold mb-2">
-                Gain (linear) (G)
+                Gain (Numeric) (G)
               </label>
               <input
                 type="text"
@@ -333,36 +344,26 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
               </div>
             </div>
 
-            {/* Operating Frequency */}
             <div className="mb-4">
-              <label htmlFor="f" className="block text-gray-700 font-bold mb-2">
-                Operating Frequency
+              <label
+                htmlFor="wavelength"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Wavelength (m)
               </label>
-              <div className="flex">
-                <input
-                  type="text"
-                  id="f"
-                  className="w-full px-3 py-2 border rounded-md mr-2"
-                  value={f}
-                  onChange={handleInputChange}
-                />
-                <select
-                  value={frequencyUnit}
-                  onChange={(e) => setFrequencyUnit(e.target.value)}
-                  className="px-3 py-2 border rounded-md"
-                >
-                  <option value="GHz">GHz</option>
-                  <option value="MHz">MHz</option>
-                  <option value="kHz">kHz</option>
-                  <option value="Hz">Hz</option>
-                </select>
-              </div>
+              <input
+                type="text"
+                id="wavelength"
+                className="w-full px-3 py-2 border rounded-md"
+                value={wavelength}
+                onChange={handleInputChange}
+              />
             </div>
 
             {/* Bandwidth of Radar */}
             <div className="mb-4">
               <label htmlFor="b" className="block text-gray-700 font-bold mb-2">
-                Bandwidth of Radar
+                Bandwidth of Radar (Hz)
               </label>
               <input
                 type="text"
@@ -376,7 +377,7 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
             {/* RPM */}
             <div className="mb-4">
               <label htmlFor="x" className="block text-gray-700 font-bold mb-2">
-                RPM
+                Rotational Speed (RPM)
               </label>
               <input
                 type="text"
@@ -393,7 +394,7 @@ const MonoRadarCalculator: React.FC<MonoRadarCalculatorProps> = () => {
                 htmlFor="theta"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Antenna Half Power Beamwidth
+                Antenna Half Power Beamwidth (Degrees)
               </label>
               <input
                 type="text"

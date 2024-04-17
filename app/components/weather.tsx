@@ -22,25 +22,12 @@ const WeatherRadarComponent: React.FC = () => {
           className="max-w-full h-auto"
         />
       </div>
-      <h3 className="text-2xl font-bold mb-4">Advantages</h3>
+      <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li className="text-green-600 mb-2">
-          A common frequency for weather radar due to its ability to detect
-          precipitation and atmospheric conditions
-        </li>
-        <li className="text-green-600 mb-2">
-          Narrow bandwidth as weather radar is focused on detecting large scale
-          atmospheric changes
-        </li>
-        <li className="text-green-600 mb-2">
-          High power to detect distant weather phenomena
-        </li>
-        <li className="text-green-600 mb-2">
-          Compromise between coverage and ground clutter
-        </li>
-        <li className="text-green-600 mb-2">
-          Suitable for the relatively static nature of weather monitoring
-        </li>
+        <li>Vaisala Weather Radar WRS300</li>
+        <li>X-Band Weather Radar WRS400</li>
+        <li>C-band Weather Radars</li>
+        <li>C-Band Polarimetric Doppler Weather Radar (DWR) - BEL</li>
       </ul>
     </div>
   );

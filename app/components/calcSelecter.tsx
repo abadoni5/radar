@@ -30,20 +30,23 @@ const RadarComponent: React.FC = () => {
   return (
     <div className="container mx-auto py-8">
       <div className="flex justify-center">
-        <div className="flex items-center space-x-8"> {/* Increased space between items */}
-          <TabButton
-            tabName="Bistatic Radar"
-            selectedTab={selectedTab}
-            handleClick={handleTabClick}
-          />
+        <div className="flex items-center space-x-8">
+          {/* Increased space between items */}
           <TabButton
             tabName="Monostatic Radar"
             selectedTab={selectedTab}
             handleClick={handleTabClick}
           />
+          <TabButton
+            tabName="Bistatic Radar"
+            selectedTab={selectedTab}
+            handleClick={handleTabClick}
+          />
         </div>
       </div>
-      <div className="w-full mt-4 flex justify-center items-center"> {/* Increased top margin */}
+      <div className="w-full mt-4 flex justify-center items-center">
+        {" "}
+        {/* Increased top margin */}
         <Suspense fallback={<div>Loading...</div>}>
           {renderComponent()}
         </Suspense>

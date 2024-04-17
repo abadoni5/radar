@@ -21,18 +21,18 @@ export default function Home() {
               className="w-1/3 p-6 bg-green-200 rounded-lg hover:bg-green-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-4 flex flex-col justify-between"
             >
               <h2 className="text-xl font-semibold mb-2 text-center">
-                Buy Radar
+                Radar Parameters
               </h2>
-              <p>Explore options to purchase radar equipment.</p>
+              <p>Explore configurations of various real life radars.</p>
             </Link>
             <Link
               href="/calculator"
               className="w-1/3 p-6 bg-yellow-200 rounded-lg hover:bg-yellow-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 ml-4 flex flex-col justify-between"
             >
               <h2 className="text-xl font-semibold mb-2 text-center">
-                Try Scientific Calculator
+                Radar Calculator
               </h2>
-              <p>Experiment with our scientific calculator tool.</p>
+              <p>Experiment with our radar calculator tool.</p>
             </Link>
           </div>
         </div>

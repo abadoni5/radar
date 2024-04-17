@@ -20,22 +20,25 @@ const AirportRadarComponent: React.FC = () => {
           className="max-w-full h-auto"
         />
       </div>
-      <h3 className="text-2xl font-bold mb-4">Advantages</h3>
+      <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li className="text-green-600 mb-2">
-          Provides good resolution and range for airport surveillance
+        <li>
+          Airport Surveillance Radar (ASR-11) | Federal Aviation Administration
         </li>
-        <li className="text-green-600 mb-2">
-          Optimized for the airport environment
+        <li>
+          <a href="https://www.indracompany.com/en/airport-route-surveillance-3d-radar-band">
+            Indra - Airport Route Surveillance 3D Radar
+          </a>
         </li>
-        <li className="text-green-600 mb-2">
-          High power for reliable detection of aircraft around the airport
+        <li>
+          <a href="https://www.indracompany.com/en/wam-mlat-systems-0">
+            Indra - WAM MLAT Systems
+          </a>
         </li>
-        <li className="text-green-600 mb-2">
-          Relatively low, to focus on airport area
-        </li>
-        <li className="text-green-600 mb-2">
-          Suitable for the more static airport environment
+        <li>
+          <a href="https://www.indracompany.com/en/monopulse-secondary-surveillance-mode-s-radar-0">
+            Indra - Monopulse Secondary Surveillance Mode S Radar
+          </a>
         </li>
       </ul>
     </div>

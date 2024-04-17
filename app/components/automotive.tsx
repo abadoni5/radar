@@ -19,27 +19,15 @@ const AutomotiveRadarComponent: React.FC = () => {
           className="max-w-full h-auto"
         />
       </div>
-      <h3 className="text-2xl font-bold mb-4">Advantages</h3>
+      <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li className="text-green-600 mb-2">
-          Provides high resolution and accuracy for short range automotive
-          applications
+        <li>Continental Automotive | Advanced Radar Sensor – ARS51x</li>
+        <li>Bosch Mobility Front radar sensor</li>
+        <li>
+          Safety and Cockpit Systems | Products & Services | What we do | DENSO
+          Global Website
         </li>
-        <li className="text-green-600 mb-2">
-          Wide bandwidth for high resolution imaging of the surrounding
-          environment
-        </li>
-        <li className="text-green-600 mb-2">
-          Relatively low power as these radars are designed for short range low
-          power operation in vehicles
-        </li>
-        <li className="text-green-600 mb-2">
-          Mounted close to the vehicle's body for optimal coverage
-        </li>
-        <li className="text-green-600 mb-2">
-          Usually using a phased array or other scanning mechanism to provide a
-          wide field of view
-        </li>
+        <li>Automotive Radar Systems | NXP Semiconductors</li>
       </ul>
     </div>
   );
