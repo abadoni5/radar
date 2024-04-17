@@ -19,11 +19,25 @@ const TrackingRadarComponent: React.FC = () => {
       </div>
       <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li>Compact Tracking Radar | BAE Systems</li>
-        <li>PHAROS - Multi Target Tracking Radar | Thales Group</li>
-        <li>Precision Tracking Radar | BAE Systems</li>
-        <li>
-          RSR 420 | Ground-Based Surveillance and Target Acquisition Radar
+        <li className="hover:text-blue-500">
+          <a href="https://www.baesystems.com/en/product/compact-tracking-radar">
+            Compact Tracking Radar | BAE Systems
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.thalesgroup.com/en/pharos-multi-target-tracking-radar">
+            PHAROS - Multi Target Tracking Radar | Thales Group
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.baesystems.com/en/product/precision-tracking-radar">
+            Precision Tracking Radar | BAE Systems
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.reutechradar.com/products/defence/ground-based-surveillance-and-target-acquisition-radar/#rsr410">
+            RSR 420 | Ground-Based Surveillance and Target Acquisition Radar
+          </a>
         </li>
       </ul>
     </div>

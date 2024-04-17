@@ -22,20 +22,23 @@ const AirportRadarComponent: React.FC = () => {
       </div>
       <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li>
-          Airport Surveillance Radar (ASR-11) | Federal Aviation Administration
+        <li className="hover:text-blue-500">
+          <a href="https://www.faa.gov/air_traffic/technology/asr-11">
+            Airport Surveillance Radar (ASR-11) | Federal Aviation
+            Administration
+          </a>
         </li>
-        <li>
+        <li className="hover:text-blue-500">
           <a href="https://www.indracompany.com/en/airport-route-surveillance-3d-radar-band">
             Indra - Airport Route Surveillance 3D Radar
           </a>
         </li>
-        <li>
+        <li className="hover:text-blue-500">
           <a href="https://www.indracompany.com/en/wam-mlat-systems-0">
             Indra - WAM MLAT Systems
           </a>
         </li>
-        <li>
+        <li className="hover:text-blue-500">
           <a href="https://www.indracompany.com/en/monopulse-secondary-surveillance-mode-s-radar-0">
             Indra - Monopulse Secondary Surveillance Mode S Radar
           </a>

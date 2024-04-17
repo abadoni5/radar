@@ -19,10 +19,28 @@ const AirborneRadarComponent: React.FC = () => {
       </div>
       <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li>Saab 2000 Erieye AEW&C</li>
-        <li>GlobalEye AEW&C | Saab</li>
-        <li>E-3 Sentry (AWACS)</li>
-        <li>Airborne Early Warning & Control Aircraft - ELW-2090</li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.saab.com/products/saab-2000-erieye-aewc">
+            Saab 2000 Erieye AEW&C
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.saab.com/products/globaleye">
+            GlobalEye AEW&C | Saab
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104504/e-3-sentry-awacs/">
+            {" "}
+            E-3 Sentry (AWACS)
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          {" "}
+          <a href="https://www.iai.co.il/p/elw-2090">
+            Airborne Early Warning & Control Aircraft - ELW-2090
+          </a>
+        </li>
       </ul>
     </div>
   );

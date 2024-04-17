@@ -21,13 +21,27 @@ const AutomotiveRadarComponent: React.FC = () => {
       </div>
       <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
       <ul className="list-disc pl-6">
-        <li>Continental Automotive | Advanced Radar Sensor – ARS51x</li>
-        <li>Bosch Mobility Front radar sensor</li>
-        <li>
-          Safety and Cockpit Systems | Products & Services | What we do | DENSO
-          Global Website
+        <li className="hover:text-blue-500">
+          <a href="https://www.continental-automotive.com/en/components/radars/long-range-radars/advanced-radar-sensor-ars51x.html">
+            Continental Automotive | Advanced Radar Sensor – ARS51x
+          </a>
         </li>
-        <li>Automotive Radar Systems | NXP Semiconductors</li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.bosch-mobility.com/en/solutions/sensors/front-radar-sensor/">
+            Bosch Mobility Front radar sensor
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.denso.com/global/en/business/products-and-services/mobility/safety-cockpit/">
+            Safety and Cockpit Systems | Products & Services | What we do |
+            DENSO Global Website
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.nxp.com/applications/automotive/adas-and-safe-driving/automotive-radar-systems:RADAR-SYSTEMS">
+            Automotive Radar Systems | NXP Semiconductors
+          </a>
+        </li>
       </ul>
     </div>
   );

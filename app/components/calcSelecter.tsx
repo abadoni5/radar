@@ -6,7 +6,7 @@ const BistaticRadar = React.lazy(() => import("./bistatic"));
 const MonostaticRadar = React.lazy(() => import("./monostatic"));
 
 const RadarComponent: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<string>("Bistatic Radar");
+  const [selectedTab, setSelectedTab] = useState<string>("Monostatic Radar");
 
   const handleTabClick = (tabName: string) => {
     setSelectedTab(tabName);

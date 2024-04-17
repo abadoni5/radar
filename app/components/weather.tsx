@@ -23,11 +23,27 @@ const WeatherRadarComponent: React.FC = () => {
         />
       </div>
       <h3 className="text-xl font-bold mt-8">Examples of this Radar:</h3>
-      <ul className="list-disc pl-6">
-        <li>Vaisala Weather Radar WRS300</li>
-        <li>X-Band Weather Radar WRS400</li>
-        <li>C-band Weather Radars</li>
-        <li>C-Band Polarimetric Doppler Weather Radar (DWR) - BEL</li>
+      <ul className="list-disc pl-6 ">
+        <li className="hover:text-blue-500">
+          <a href="https://www.vaisala.com/en/products/weather-environmental-sensors/wrs300">
+            Vaisala Weather Radar WRS300
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.vaisala.com/en/products/weather-environmental-sensors/x-band-weather-radar-wrs400-general">
+            X-Band Weather Radar WRS400
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://www.vaisala.com/en/products/weather-environmental-sensors/c-band-weather-radar">
+            C-band Weather Radars
+          </a>
+        </li>
+        <li className="hover:text-blue-500">
+          <a href="https://bel-india.in/product/c-band-polarimetric-doppler-weather-radar-dwr/">
+            C-Band Polarimetric Doppler Weather Radar (DWR) - BEL
+          </a>
+        </li>
       </ul>
     </div>
   );
